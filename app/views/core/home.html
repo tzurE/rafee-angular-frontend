@@ -1,0 +1,12 @@
+<div ng-controller="HomeCtrl" >
+
+
+	<div layout="row" layout-align="center end">
+	    <md-select placeholder="Select a Slideshow" ng-model="selectModel">
+                <md-option value="{{opt.name}}" ng-repeat="opt in slideshows">{{ opt.name }}</md-option>
+            </md-select>
+	    <div>
+	    <md-button class="md-raised md-primary">GO!</md-button>
+	    </div>
+        </div>
+</div>

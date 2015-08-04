@@ -1,0 +1,88 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js h100pr"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rafee</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="cache-control" content="max-age=0" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="expires" content="0" />
+	<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+	<meta http-equiv="pragma" content="no-cache" />
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/ng-grid/ng-grid.min.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    
+        <!--
+          Include CSS files from a "tmp" directory, put there by another task.
+          This shows how to override the default "basePath" set in the options.
+        -->
+        
+        
+        
+        
+    
+    <!-- endbuild -->
+  </head>
+  <body ng-app="rafeeApp" class="h100pr" style="overflow: hidden;">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="container-fluid" ng-include="'views/base.html'" ng-controller="BaseCtrl" class="h100pr" style="height: 100%;"></div>
+
+    
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+       <!-- build:js scripts/vendor.js -->
+       <!-- bower:js -->
+       <script src="bower_components/jquery/jquery.js"></script>
+       <script src="bower_components/angular/angular.js"></script>
+       <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+       <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+       <script src="bower_components/angular-route/angular-route.js"></script>
+       <script src="bower_components/ng-grid/build/ng-grid.min.js"></script>
+       <script src="bower_components/angular-resource/angular-resource.js"></script>
+       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+       <script src="bower_components/restangular/dist/restangular.js"></script>
+       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+       <script src="bower_components/angular-animate/angular-animate.js"></script>
+       <script src="bower_components/angular-aria/angular-aria.js"></script>
+       <script src="bower_components/angular-material/angular-material.js"></script>
+       <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.5.0/angular-material-icons.min.js"></script> 
+       <!-- endbower -->
+       <!-- endbuild -->
+       
+       		
+       		
+           <!-- build:js({.tmp,app}) scripts/scripts.js -->
+           
+           
+           <script src="scripts/app_config.js"></script>
+           <script src="scripts/app.js"></script>
+           <script src="scripts/after-meta.js"></script>
+           <script src="scripts/services/auth.js"></script>
+           <script src="scripts/controllers/base-ctrs.js"></script>
+           <script src="scripts/controllers/home.js"></script>
+
+           
+           <!-- endbuild -->
+</body>
+</html>
+
