@@ -2,7 +2,7 @@ var rafeeApp = (function(){
 	var moduleName = 'rafeeApp';
 	var r = {
 	    module : angular.module(moduleName, ['restangular', 'ui.router', 
-                                                 'ngMaterial', 'ngMdIcons']),
+                                                 'ngMaterial','ngMdIcons']),
             applications : {},
             moduleName : moduleName,
             isBlockingUI : function(url){
@@ -142,22 +142,49 @@ rafeeApp.module.config(['$stateProvider', '$urlRouterProvider', 'RestangularProv
 		name: 'admin', url : '/admin',
 		views: {
 			controller: ['AdminCtrl'],
+			'header@': { templateUrl: "views/core/partials/header.html"},			
 			'main@': { templateUrl: "views/core/admin.html"},
 		}});	
-	// states.push({
-	// 	name: 'admin-add-repo', url : '/admin/addrepo',
-	// 	views: {
-	// 		controller: ['AdminCtrl'],
-	// 		'main@': { templateUrl: "views/core/admin.html"},
-	// 	}});
+	states.push({
+		name: 'admin-add-user', url : '/admin/adduser',
+		views: {
+			controller: ['AddCtrl'],
+			'header@': { templateUrl: "views/core/partials/header.html"},						
+			'main@': { templateUrl: "views/core/partials/adduser.html"},
+		}});
+	states.push({
+		name: 'admin-add-repo', url : '/admin/addrepo',
+		views: {
+			controller: ['AddCtrl'],
+			'header@': { templateUrl: "views/core/partials/header.html"},						
+			'main@': { templateUrl: "views/core/partials/addrepo.html"},
+		}});	
 	states.push({ name: 'home', 
 		url: '/',
-		
 		views: {
-			'main@': { templateUrl: "views/core/home.html"},
-			
+			'header@': { templateUrl: "views/core/partials/header.html"},
+			'main@': { templateUrl: "views/core/partials/slideview.html"},
 		}});
-	
+	states.push({ name: 'admin-add-slideshow', 
+		url: '/admin/addslideshow',
+		views: {
+			'header@': { templateUrl: "views/core/partials/header.html"},
+			'main@': { templateUrl: "views/core/partials/addslideshow.html"},
+		}});	
+	states.push({ name: 'admin-template-show', 
+		url: '/admin/templateprev',
+		views: {
+			controller: ['TemplateCtrl'],
+			'header@': { templateUrl: "views/core/partials/header.html"},
+			'main@': { templateUrl: "views/core/partials/templateprev.html"},
+		}});	
+	states.push({ name: 'presentation', 
+		url: '/presentation',
+		views: {
+			controller: ['PresentCtrl'],
+			'header@': { templateUrl: "views/core/partials/header.html"},			
+			'main@': { templateUrl: "views/core/presentation.html"},
+		}});	
 	
 	angular.forEach(states, function(state) { $stateProvider.state(state); });
 
@@ -168,7 +195,7 @@ rafeeApp.module.config(['$stateProvider', '$urlRouterProvider', 'RestangularProv
 
 
 
-rafeeApp.module.run(['$state', 'Restangular', '$rootScope', 'AuthService',  '$timeout',  '$location', 
+rafeeApp.module.run(['$state', 'Restangular', '$rootScope', 'AuthService',  '$timeout',  '$location', 'DataService', 
                     function($state, Restangular, $rootScope, AuthService,  $timeout,  $location ){
 	
 	
@@ -255,5 +282,22 @@ rafeeApp.module.run(['$state', 'Restangular', '$rootScope', 'AuthService',  '$ti
 	
 	
 }]);
+
+angular.module(rafeeApp.moduleName)
+	.directive('mCustomView', ['$compile', function($compile) {
+  return {
+    restrict: 'E',
+    
+    scope: {},
+    templateUrl: 'my-dialog.html',
+    link: function (scope, element, attr) {
+     
+		var e = $compile(attr.mTemplate)(scope);
+		element.replaceWith(e);	
+
+    }
+  };
+}]);
+
 
 

@@ -1,12 +1,12 @@
 <div ng-controller="AdminCtrl" >
 <div layout="row" layout-align="center center"><h1><b> Admin Control Panel </b></h1>
 </div>
-	<div>
+	<div class="body" >
 		<md-content class="md-padding">
 			<md-tabs md-dynamic-height md-border-bottom>
 				<md-tab label="Users">
 				<h1 layout="row" layout-align="center"> <b>Users</b></h1>
-				<div layout="row" layout-align="center center"><a href="#/admin"> <md-button class="md-raised md-primary"> Add User</md-button></a></div>
+				<div layout="row" layout-align="center center"><a href="#/admin/adduser"> <md-button class="md-raised md-primary"> Add User</md-button></a></div>
 					<div layout="row">
 						<md-list flex>
 							<md-list-item ng-repeat="user in users" ng-click="goToUser(user, $event)"> 
@@ -23,26 +23,35 @@
 			<div layout="row" layout-align="center center"><a href="#/admin"> <md-button class="md-raised md-primary"> Add Team</md-button></a></div>
 				<div layout="row">
 					<md-list flex>
-						<md-list-item ng-repeat="team in teams" ng-click="goToTeam(team, $event)" > 
+						<md-list-item ng-repeat="team in teams" ng-click="goToTeam(team, $event)" class=""> 
 						<ng-md-icon icon="people_outline" size="34" class="md-avatar"></ng-md-icon>
 						{{team.name}}<span flex> </span>
-					<ng-md-icon icon="delete" ng-click="delete(user, $event)" layout="row" layout-align="center center" class="md-secondary"></ng-md-icon>
+					<ng-md-icon icon="delete" ng-click="delete('teams/',team, $event)" layout="row" layout-align="center center" class="md-secondary"></ng-md-icon>
 					</md-list-item>
 					</md-list>
 			</div> 
 			</md-tab>
 			<md-tab label="Templates">
-				<h1 layout="row" layout-align="center"> <b>Templates</b></h1>		
+				<h1 layout="row" layout-align="center"> <b>Templates</b></h1>	
+				<div layout="row">
+					<md-list flex>
+						<md-list-item ng-repeat="temp in templates" ng-click="preview(temp)" >
+						<ng-md-icon icon="settings_system_daydream" size="34" class="md-avatar"></ng-md-icon>
+						{{temp.name}}<span flex> </span>
+					</md-list-item>
+					</md-list>
+			</div> 					
 			</md-tab>
 			<md-tab label="Repositories">
 				<h1 layout="row" layout-align="center"> <b>Repositories</b></h1>				
-				<div layout="row" layout-align="center center"><a href="#/admin"> <md-button class="md-raised md-primary"> Add Repository</md-button></a></div>
+				<div layout="row" layout-align="center center">
+					<a href="#/admin/addrepo"> <md-button class="md-raised md-primary"> Add Repository</md-button></a></div>
 					<div layout="row">
 					<md-list flex>
 						<md-list-item ng-repeat="opt in repositories">
 						<ng-md-icon icon="cloud" size="34" class="md-avatar"></ng-md-icon>
 						{{opt.url}}	<span flex> </span>
-							<ng-md-icon icon="delete" ng-click="delete(opt, $event)" layout="row" layout-align="center center" class="md-secondary"></ng-md-icon>
+							<ng-md-icon icon="delete" ng-click="delete('repositories/',opt, $event)" layout="row" layout-align="center center" class="md-secondary"></ng-md-icon>
 						</md-list-item>
 					</md-list>
 
@@ -50,13 +59,13 @@
 			</md-tab>
 			<md-tab label="Slideshows">
 			<h1 layout="row" layout-align="center"> <b>Slideshows</b></h1>		
-			<div layout="row" layout-align="center center"><a href="#/admin"> <md-button class="md-raised md-primary"> Build a Slideshow</md-button></a></div>
+			<div layout="row" layout-align="center center"><a href="#/admin/addslideshow"> <md-button class="md-raised md-primary"> Build a Slideshow</md-button></a></div>
 			<div layout="row">
 				<md-list flex>
 					<md-list-item ng-repeat="opt in slideshows" ng-click="goToSlideshow(slideshow, $event)">
 					<ng-md-icon icon="slideshow" size="34" class="md-avatar"></ng-md-icon>
 					{{opt.name}}	<span flex> </span>
-						<ng-md-icon icon="delete" ng-click="delete(slideshow, $event)" layout="row" layout-align="center center" class="md-secondary"></ng-md-icon>
+						<ng-md-icon icon="delete" ng-click="delete('slideshows/', opt, $event)" layout="row" layout-align="center center" class="md-secondary"></ng-md-icon>
 					</md-list-item>
 					</md-list>
 			</div> 	

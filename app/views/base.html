@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
 	<md-content>
 	<div>
 		<div layout="row" layout-align="start center" flex>
@@ -6,11 +6,18 @@
 		<a href="#/admin"> <md-button class="md-raised md-primary"> Admin </md-button> </a>
 		<span flex></span>
 		<div align="right"> 
-		<a href="#/logout"><md-button class="md-raised"> Logout</md-button> </div></a>
+		<md-button class="md-raised" ng-click="logOut()"> Logout</md-button> </div>
 	</div>
 	</div>
 	</div>
 </md-content>
-<div>
+<div> -->
+<!-- 	<div ng-include="'views/core/partials/header.html'"> </div>
+ -->
+
+<!--***** The base container of the app.
+ Above there is an option to use ng-include, instead of ui-views, but it requires some changes to the scripts.***** --> 
+
+<div ui-view="header"></div>
 <div ui-view="main"></div>
 </div>

@@ -1,0 +1,30 @@
+<div ng-controller="AddCtrl">
+	<h1 layout="row" layout-align="center"> <b>Build a Slideshow</b></h1>
+	  <md-content layout-padding layout="row">	
+      <div>
+      <md-input-container flex>
+	      <label>Slideshow Name</label>
+	      <input ng-model="slideshow.name" type="text">
+	  </md-input-container>
+<!--       <md-input-container flex>
+	      <label>Templates</label>
+	      <input ng-model="slideshow.templates" type="text">
+	  </md-input-container>	 -->  
+      <md-input-container flex>
+	      <label>Transition Interval</label>
+	      <input ng-model="slideshow.transition_interval" type="number">
+	  </md-input-container>	  
+      <md-input-container flex>
+	      <label>Caching Interval</label>
+	      <input ng-model="slideshow.caching_interval" type="number">
+	  </md-input-container>		  	   	  	  
+	</div>  
+	<div layout="column">
+	    <md-select placeholder="Select Templates" ng-model="selectModel" multiple="true">
+                <md-option value="{{opt.name}}" ng-repeat="opt in templates">{{ opt.name }}</md-option>
+            </md-select>
+            </div>	
+	</md-content>
+	<md-button ng-click="addSlideshow()">Submit</button>
+	</form>
+</div> 

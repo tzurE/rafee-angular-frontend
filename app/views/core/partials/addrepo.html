@@ -1,0 +1,13 @@
+<div ng-controller="AddCtrl">
+	<h1 layout="row" layout-align="center"> <b>Add a Repository</b></h1>
+	  <md-content layout-padding layout="row">	
+      <div>
+          <md-input-container flex>
+	      <label>URL</label>
+	      <input ng-model="repo.url">
+	  </md-input-container>
+	</div>  
+	</md-content>
+	<md-button ng-click="addRepo()">Submit</button>
+	</form>
+</div> 

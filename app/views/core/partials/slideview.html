@@ -1,0 +1,16 @@
+<div ng-controller="HomeCtrl" >	
+	<div layout="row" layout-align="center end">
+	    <md-select placeholder="Select a Slideshow" ng-model="selectModel" ng-change="getTemplatesSlideshow()">
+                <md-option value="{{opt.id}}" ng-repeat="opt in slideshows">{{ opt.name }}</md-option>
+            </md-select>
+	    <div>
+	    <a href="#/presentation"> <md-button class="md-raised md-primary" ng-click="present()">GO!</md-button></a>
+	    </div>
+   </div>
+	    <div layout="column" layout-align="center center">
+	    	<h3><b> Templates in Slideshow: </b></h3> 
+	    	<md-list ng-if="check()">
+	    		<md-list-item ng-repeat="template in templates"> {{$index + 1 }}. {{template}}</md-list-item>
+	    	</md-list>
+	    </div>   
+</div>
